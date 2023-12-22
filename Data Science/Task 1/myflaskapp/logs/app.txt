@@ -1,0 +1,50 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Home page accessed
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:11:39] "GET / HTTP/1.1" 200 -
+INFO:root:Prediction page accessed
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:11:44] "GET /predict HTTP/1.1" 200 -
+ERROR:root:Error occurred during prediction: Found array with dim 3. LogisticRegression expected <= 2.
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:11:56] "POST /predict HTTP/1.1" 200 -
+ERROR:app:Exception on /output [GET]
+Traceback (most recent call last):
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: output() missing 1 required positional argument: 'prediction'
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:11:56] "[35m[1mGET /output HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Home page accessed
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:12:52] "GET / HTTP/1.1" 200 -
+INFO:root:Prediction page accessed
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:12:55] "GET /predict HTTP/1.1" 200 -
+ERROR:root:Error occurred during prediction: Found array with dim 3. LogisticRegression expected <= 2.
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:13:05] "POST /predict HTTP/1.1" 200 -
+ERROR:app:Exception on /output [GET]
+Traceback (most recent call last):
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kausik/Documents/OIBSIP/venv/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: output() missing 1 required positional argument: 'prediction'
+INFO:werkzeug:127.0.0.1 - - [22/Dec/2023 16:13:05] "[35m[1mGET /output HTTP/1.1[0m" 500 -

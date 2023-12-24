@@ -1,0 +1,8 @@
+I am applying for Software Student Training in Engineering Program (STEP) Intern, 2024
+Write a cover letter for this job application
+
+Dear Sir/Madam,
+    I am a student pursuing my undergraduate degree in Artificial Intelligence and Machine Learning at St Joseph's College of Engineering, Chennai.
+    I am applying for the Software Student Training in Engineering Program (STEP) Intern, 2024. I would like to be a part of this program because
+    as an aspiring software engineer, I would like to learn more about this field and gain experience in the same.
+    I am proficiently skilled in C and Python programming languages.

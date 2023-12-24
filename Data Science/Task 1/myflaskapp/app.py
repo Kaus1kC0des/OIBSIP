@@ -1,55 +1,49 @@
-import logging
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request,url_for
 from joblib import load
-
-# Set up logging
-logging.basicConfig(filename='logs/app.txt', level=logging.INFO)
+import numpy as np
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(filename="logs/app.txt",level=logging.DEBUG)
+prediction = ""
 
-# Load model
-model = load("models/iris_model.joblib")
-global prediction
-
-@app.route("/")
+@app.route('/')
 def home():
-    logging.info("Home page accessed")
-    return render_template("home.html")
+    return render_template('home.html')
 
-
-@app.route("/predict", methods=["GET", "POST"])
+@app.route('/predict',methods=['POST','GET'])
 def predict():
-    if request.method == "POST":
+    if request.method == 'POST':
         try:
-            sepal_length = float(request.form["sepal_length"])
-            sepal_width = float(request.form["sepal_width"])
-            petal_length = float(request.form["petal_length"])
-            petal_width = float(request.form["petal_width"])
-            features = [sepal_length, sepal_width, petal_length, petal_width]
-            prediction = model.predict([[features]])
-            if prediction[0] == 0:
-                prediction = "Setosa"
-            elif prediction[0] == 1:
-                prediction = "Versicolor"
+            global prediction
+            model = load('models/iris_model.joblib')
+            data = request.form.to_dict()
+            data = list(data.values())
+            data = np.array(data,dtype=np.float64)
+            data = data.reshape(1,-1)
+            predicted = model.predict(data)
+            if predicted == 0:
+                prediction += "Iris Setosa"
+                print(prediction)
+                return render_template('output.html',prediction="Iris Setosa")
+            elif predicted == 1:
+                prediction += "Iris Versicolour"
+                print(prediction)
+                return render_template('output.html',prediction="Iris Versicolour")
             else:
-                prediction = "Virginica"
-            return output(prediction)
-
+                prediction += "Iris Virginica"
+                print(prediction)
+                return render_template('output.html',prediction="Iris Virginica")
         except Exception as e:
-            logging.error(f"Error occurred during prediction: {e}")
-            return render_template("error.html", error=e)
-
-    elif request.method == "GET":
-        logging.info("Prediction page accessed")
-        return render_template("predict.html")
-
+            logging.exception(e)
+            return render_template('error.html',error=e)
+    else:
+        return render_template('predict.html')
 
 @app.route("/output")
-def output(prediction):
-    logging.info(f"Output page accessed, prediction: {prediction}")
-    return render_template('output.html', prediction=prediction)
+def output():
+    return render_template("output.html", prediction=prediction)
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()

@@ -1,0 +1,10 @@
+[packages]
+pandas = "*"  # Install the latest version
+numpy = "*"
+matplotlib = "*"
+seaborn = "*"
+plotly = "*"
+cufflinks = "*"
+scikit-learn = "*"
+flask = "*"
+

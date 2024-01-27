@@ -7,8 +7,7 @@ plotly = "*"
 cufflinks = "*"
 scikit-learn = "*"
 flask = "*"
-bs4 = "*"
-requests = "*"
-django = "*"
-
-
+jupyter = "*"
+tensorflow = "*"
+tensorflow-hub = "*"
+tensorflow-text = "*"

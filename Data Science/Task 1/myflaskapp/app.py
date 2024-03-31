@@ -22,6 +22,7 @@ def predict():
             data = np.array(data,dtype=np.float64)
             data = data.reshape(1,-1)
             predicted = model.predict(data)
+            print(type(predicted))
             if predicted == 0:
                 prediction += "Iris Setosa"
                 print(prediction)
